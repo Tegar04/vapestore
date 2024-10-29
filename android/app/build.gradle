@@ -1,0 +1,50 @@
+plugins {
+    id "com.android.application"
+    id 'com.google.gms.google-services' // Plugin Firebase
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin" // Flutter Gradle Plugin
+}
+
+android {
+    namespace = "com.example.vapestore_project"
+    compileSdk = flutter.compileSdkVersion
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.vapestore_project"
+        minSdkVersion = 23
+        targetSdk = flutter.targetSdkVersion
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug // Ganti dengan konfigurasi rilis jika sudah siap
+        }
+    }
+
+    dependencies {
+        // Firebase BoM (Bill of Materials) untuk konsistensi versi
+        implementation platform('com.google.firebase:firebase-bom:32.2.0')
+        implementation 'com.google.firebase:firebase-auth'
+        implementation 'com.google.firebase:firebase-messaging'
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'androidx.core:core:1.6.0'
+    }
+}
+
+flutter {
+    source = "../.."
+}
