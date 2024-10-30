@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'My App',
       initialRoute: '/welcome', // Tentukan halaman awal
       getPages: AppPages.routes, // Gunakan route yang sudah terdaftar

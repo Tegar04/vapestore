@@ -28,7 +28,7 @@ class LoginController extends GetxController {
         email: email.value,
         password: password.value,
       );
-      Get.offAllNamed('/home'); // Berpindah ke halaman HomeView
+      Get.toNamed('/home'); // Berpindah ke halaman HomeView
     } on FirebaseAuthException catch (e) {
       loginError.value = e.message ?? "An error occurred";
     } finally {

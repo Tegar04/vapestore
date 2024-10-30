@@ -1,4 +1,3 @@
-// app/modules/welcome/controllers/signup_controller.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
@@ -28,8 +27,7 @@ class SignupController extends GetxController {
     print("Starting signup process"); // Debug log
     try {
       // Buat akun pengguna baru di Firebase Authentication
-      UserCredential userCredential =
-          await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
         email: email.value,
         password: password.value,
       );
@@ -45,12 +43,19 @@ class SignupController extends GetxController {
 
       print("User data saved to Firestore"); // Debug log
 
-      // Arahkan ke halaman login setelah registrasi berhasil
-      Get.offNamed('/login');
+      isLoading.value = false; // Set loading ke false sebelum navigasi
+      Get.offNamed('/login'); // Navigasi ke halaman login
+      print("Navigated to login page"); // Debug log
     } on FirebaseAuthException catch (e) {
+      isLoading.value = false; // Set ke false jika terjadi error
+      print("FirebaseAuthException: ${e.message}"); // Debug log untuk error
       Get.snackbar("Error", e.message ?? "Failed to sign up");
-    } finally {
+    } catch (e) {
       isLoading.value = false;
+      print("Exception: $e"); // Debug log untuk exception umum
+      Get.snackbar("Error", "An unexpected error occurred");
+    } finally {
+      isLoading.value = false; // Set loading ke false di akhir
       print("Signup process complete"); // Debug log
     }
   }
