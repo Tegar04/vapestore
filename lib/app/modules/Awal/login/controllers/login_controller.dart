@@ -41,8 +41,8 @@ class LoginController extends GetxController {
         String role = userDoc['role'];
         if (role == 'admin') {
           Get.toNamed('/homeadmin'); // Berpindah ke halaman Admin
-        } else {
-          Get.toNamed('/home'); // Berpindah ke halaman HomeView
+        } else if (role == 'user') {
+          Get.toNamed('/homeuser'); // Berpindah ke halaman HomeView
         }
       } else {
         loginError.value = "User data not found.";

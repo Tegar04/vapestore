@@ -5,7 +5,7 @@ abstract class AppRoutes {
   static const HOME = '/home';
   static const HOMEUSER = '/homeuser';
   static const HOMEADMIN = '/homeadmin';
-  static const HOMEADMINPAGE = '/homeadminpage';
+  static const HOMEADMINPAGE = '/homeadminview';
   static const WELCOME = '/welcome';
   static const LOGIN = '/login';
   static const SIGNUP = '/signup';
