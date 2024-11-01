@@ -112,6 +112,25 @@ class ProductController extends GetxController {
     });
     isFavorited[productIndex].value = true;
   }
+
+  //penambahan Cart
+  void addToCart(int productIndex, String userId) async {
+  final product = products[productIndex];
+  final cartRef = FirebaseFirestore.instance
+      .collection('users')
+      .doc(userId)
+      .collection('cart')
+      .doc(product['id']); // ID produk sebagai dokumen di Firestore
+
+  await cartRef.set({
+    'name': product['name'],
+    'price': product['price'],
+    'imageUrl': product['imageUrl'],
+    'quantity': 1, // Jumlah default
+  }, SetOptions(merge: true));
+}
+
+
 }
 
 }
