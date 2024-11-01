@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/components/bottom_navbar.dart';
+import 'package:myapp/app/modules/home/views/home_admin.dart';
 import 'package:myapp/app/modules/open_product/views/open_product_page.dart';
 import 'package:myapp/app/modules/product/controllers/product_controller.dart';
 import 'package:myapp/app/modules/product/controllers/promo_controller.dart';
@@ -35,7 +36,9 @@ class _HomePageState extends State<HomePage> {
             children: [
               IconButton(
                 icon: const Icon(Icons.menu),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => const HomeAdminPage());
+                },
               ),
               IconButton(
                 icon: const Icon(Icons.notifications),
