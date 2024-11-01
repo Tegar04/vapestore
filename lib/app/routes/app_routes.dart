@@ -3,6 +3,7 @@ part of 'app_pages.dart';
 
 abstract class AppRoutes {
   static const HOME = '/home';
+  static const HOMEADMIN = '/homeadmin';
   static const WELCOME = '/welcome';
   static const LOGIN = '/login';
   static const SIGNUP = '/signup';
