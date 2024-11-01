@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/product_controller.dart';
 
-
 class OpenProductPage extends StatelessWidget {
   final int productIndex;
   final ProductController productController = Get.find();
@@ -179,7 +178,7 @@ class OpenProductPage extends StatelessWidget {
               // Tombol Buy Now
               ElevatedButton(
                 onPressed: () {
-                  Get.toNamed("/detail_product");
+                  Get.toNamed("/detailproduct");
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 12),

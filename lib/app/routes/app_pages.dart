@@ -4,6 +4,7 @@ import 'package:myapp/app/modules/Awal/login/views/login_view.dart';
 import 'package:myapp/app/modules/Awal/register/bindings/signup_binding.dart';
 import 'package:myapp/app/modules/Awal/register/views/signup_view.dart';
 import 'package:myapp/app/modules/Awal/welcome/views/welcome_view.dart';
+import 'package:myapp/app/modules/Produk/detail_produk/view/detail_product_page.dart';
 import 'package:myapp/app/modules/Tengah/home/views/home_admin.dart';
 import 'package:myapp/app/modules/Tengah/home/views/home_view_user.dart';
 import '../modules/Tengah/home/bindings/home_binding.dart';
@@ -33,15 +34,19 @@ class AppPages {
       binding: SignupBinding(),
     ),
     GetPage(
-     name: AppRoutes.HOMEADMINPAGE,
-     page: () => HomeAdminPage(),
-     binding: HomeBinding(),
-     ),
-
+      name: AppRoutes.HOMEADMINPAGE,
+      page: () => HomeAdminPage(),
+      binding: HomeBinding(),
+    ),
     GetPage(
-     name: AppRoutes.HOMEADMIN,
-     page: () => HomePage(),
-     binding: HomeBinding(),
-     )
+      name: AppRoutes.HOMEADMIN,
+      page: () => HomePage(),
+      binding: HomeBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.detailProduct,
+      page: () => const DetailProductPage(),
+      transition: Transition.fadeIn, // Optional: Add transition effect
+    ),
   ];
 }
