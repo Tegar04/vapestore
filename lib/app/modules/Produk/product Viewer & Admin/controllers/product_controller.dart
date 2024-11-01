@@ -93,28 +93,25 @@ class ProductController extends GetxController {
     return imageUrl;
   }
 
-  void toggleFavorite(int index, String userId) async {
-    final productId = products[index]['id'];
-    final favRef = firestore
-        .collection('products')
-        .doc(productId)
-        .collection('favorites')
-        .doc(userId);
+  void toggleFavorite(int productIndex, String userId) async {
+  final product = products[productIndex];
+  final wishlistRef = FirebaseFirestore.instance
+      .collection('users')
+      .doc(userId)
+      .collection('wishlist')
+      .doc(product['id']); // Misal menggunakan id unik produk
 
-    final favDoc = await favRef.get();
-
-    if (favDoc.exists) {
-      await favRef.delete();
-      products[index]['likes'] = (products[index]['likes'] ?? 1) - 1;
-      isFavorited[index].value = false;
-    } else {
-      await favRef.set({'userId': userId});
-      products[index]['likes'] = (products[index]['likes'] ?? 0) + 1;
-      isFavorited[index].value = true;
-    }
-
-    firestore.collection('products').doc(productId).update({
-      'likes': products[index]['likes'],
+  if (isFavorited[productIndex].value) {
+    await wishlistRef.delete();
+    isFavorited[productIndex].value = false;
+  } else {
+    await wishlistRef.set({
+      'name': product['name'],
+      'price': product['price'],
+      'imageUrl': product['imageUrl'],
     });
+    isFavorited[productIndex].value = true;
   }
+}
+
 }

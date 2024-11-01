@@ -5,6 +5,7 @@ import 'package:myapp/app/modules/Awal/register/bindings/signup_binding.dart';
 import 'package:myapp/app/modules/Awal/register/views/signup_view.dart';
 import 'package:myapp/app/modules/Awal/welcome/views/welcome_view.dart';
 import 'package:myapp/app/modules/Produk/detail_produk/view/detail_product_page.dart';
+import 'package:myapp/app/modules/Tengah/Wislisht/wishlist.dart';
 import 'package:myapp/app/modules/Tengah/home/views/home_admin.dart';
 import 'package:myapp/app/modules/Tengah/home/views/home_view_user.dart';
 import '../modules/Tengah/home/bindings/home_binding.dart';
@@ -48,5 +49,9 @@ class AppPages {
       page: () => const DetailProductPage(),
       transition: Transition.fadeIn, // Optional: Add transition effect
     ),
+
+    GetPage(
+     name: AppRoutes.WISHLIST,
+     page: () => WishlistPage()),
   ];
 }

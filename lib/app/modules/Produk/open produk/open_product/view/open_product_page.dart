@@ -178,7 +178,7 @@ class OpenProductPage extends StatelessWidget {
               // Tombol Buy Now
               ElevatedButton(
                 onPressed: () {
-                  Get.toNamed("/detailproduct");
+                  
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 12),
