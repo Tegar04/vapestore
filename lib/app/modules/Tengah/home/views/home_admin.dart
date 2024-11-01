@@ -1,24 +1,24 @@
 // lib/app/modules/home_admin_page.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/Produk/product/controllers/product_controller.dart';
-import 'package:myapp/app/modules/Produk/product/controllers/promo_controller.dart';
-import 'package:myapp/app/modules/Produk/product/view/add_product_page.dart';
-import 'package:myapp/app/modules/Produk/product/view/add_promo_page.dart';
-import 'package:myapp/app/modules/Produk/product/view/edit_product_page.dart';
-import 'package:myapp/app/modules/Produk/product/view/edit_promo_page.dart';
-import 'package:myapp/app/modules/Produk/product/widgets/admin_product_card.dart';
-import 'package:myapp/app/modules/Produk/product/widgets/admin_promo_card.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/product_controller.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/promo_controller.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/add_product_page.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/add_promo_page.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/edit_product_page.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/edit_promo_page.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/widgets/admin_product_card.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/widgets/admin_promo_card.dart';
 
 
-class HomeAdminPage extends StatefulWidget {
-  const HomeAdminPage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomeAdminPageState createState() => _HomeAdminPageState();
 }
 
-class _HomeAdminPageState extends State<HomeAdminPage> {
+class _HomeAdminPageState extends State<HomePage> {
   final PromoController promoController = Get.put(PromoController());
   final ProductController productController = Get.put(ProductController());
 

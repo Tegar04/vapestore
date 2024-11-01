@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:myapp/app/modules/Produk/open%20produk/open_product/view/open_product_page.dart';
 import 'package:myapp/app/modules/Tengah/components/bottom_navbar.dart';
-import 'package:myapp/app/modules/Produk/product/controllers/product_controller.dart';
-import 'package:myapp/app/modules/Produk/product/controllers/promo_controller.dart';
-import 'package:myapp/app/modules/Produk/product/widgets/product_card.dart';
-import 'package:myapp/app/modules/Produk/product/widgets/promo_card.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/product_controller.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/promo_controller.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/widgets/product_card.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/widgets/promo_card.dart';
 
 
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeUserPage extends StatefulWidget {
+  const HomeUserPage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomeUserPage> {
   final PromoController promoController = Get.put(PromoController());
   final ProductController productController = Get.put(ProductController());
   int _currentIndex = 0;
@@ -35,14 +35,9 @@ class _HomePageState extends State<HomePage> {
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(
-                icon: const Icon(Icons.menu),
-                onPressed: () {
-                  Get.toNamed('/homeadmin');
-                },
-              ),
+              
             IconButton(
-              icon: const Icon(Icons.notifications),
+              icon: const Icon(Icons.search),
               onPressed: () {
                 // Navigasi ke halaman daftar notifikasi
                 

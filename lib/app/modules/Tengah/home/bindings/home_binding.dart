@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/Produk/product/controllers/product_controller.dart';
-import 'package:myapp/app/modules/Produk/product/controllers/promo_controller.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/product_controller.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/promo_controller.dart';
 
 
 

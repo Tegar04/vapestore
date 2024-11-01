@@ -22,16 +22,16 @@ class BottomNavBar extends StatelessWidget {
         // Navigasi menggunakan Get.toNamed
         switch (index) {
           case 0:
-            Get.toNamed('/home');
+            Get.toNamed('/homeuser');
             break;
           case 1:
-            Get.toNamed('/home');
+            Get.toNamed('/homeuser');
             break;
           case 2:
-            Get.toNamed('/home');
+            Get.toNamed('/homeuser');
             break;
           case 3:
-            Get.toNamed('/home');
+            Get.toNamed('/homeuser');
             break;
         }
       },
@@ -51,7 +51,7 @@ class BottomNavBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.notifications),
-          label: 'Profile',
+          label: 'Notification',
         ),
       ],
       selectedItemColor: Colors.black,
