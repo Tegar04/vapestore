@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:myapp/app/modules/Produk/open%20produk/open_product/view/open_product_page.dart';
 import 'package:myapp/app/modules/Tengah/components/bottom_navbar.dart';
 import 'package:myapp/app/modules/Produk/product/controllers/product_controller.dart';
 import 'package:myapp/app/modules/Produk/product/controllers/promo_controller.dart';
@@ -37,7 +38,7 @@ class _HomePageState extends State<HomePage> {
               IconButton(
                 icon: const Icon(Icons.menu),
                 onPressed: () {
-                  
+                  Get.toNamed('/homeadmin');
                 },
               ),
             IconButton(
@@ -126,7 +127,10 @@ class _HomePageState extends State<HomePage> {
                           productController.toggleFavorite(index, userId);
                         },
                         onTap: () {
-                          
+                          Get.to(
+                            () => OpenProductPage(
+                              productIndex: index),
+                          );
                         },
                       );
                     },
