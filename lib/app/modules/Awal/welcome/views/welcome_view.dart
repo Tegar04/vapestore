@@ -1,7 +1,7 @@
 // app/modules/welcome/welcome_view.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/home/controllers/home_controller.dart';
+import 'package:myapp/app/modules/Tengah/home/controllers/home_controller.dart';
 
 class WelcomeView extends GetView<HomeController> {
   @override
