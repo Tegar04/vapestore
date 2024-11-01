@@ -1,9 +1,8 @@
 // app/modules/welcome/welcome_view.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/Tengah/home/controllers/home_controller.dart';
 
-class WelcomeView extends GetView<HomeController> {
+class WelcomeView extends GetView<StatelessWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

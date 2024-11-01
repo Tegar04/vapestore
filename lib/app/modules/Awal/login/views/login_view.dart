@@ -135,7 +135,7 @@ class LoginView extends GetView<LoginController> {
   Widget _buildForgotPasswordLink() {
     return TextButton(
       onPressed: () {
-        Get.toNamed('/email');
+        Get.toNamed('/signup');
       },
       child: const Text(
         "Forgot password?",
