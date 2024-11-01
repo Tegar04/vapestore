@@ -13,7 +13,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: AppRoutes.HOME,
-      page: () => const HomeView(),
+      page: () => const HomePage(),
       binding: HomeBinding(),
     ),
     GetPage(
