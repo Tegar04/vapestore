@@ -40,7 +40,7 @@ class LoginController extends GetxController {
       if (userDoc.exists) {
         String role = userDoc['role'];
         if (role == 'admin') {
-          Get.toNamed('/homeadmin'); // Berpindah ke halaman Admin
+          Get.toNamed('/homeadminview'); // Berpindah ke halaman Admin
         } else if (role == 'user') {
           Get.toNamed('/homeuser'); // Berpindah ke halaman HomeView
         }

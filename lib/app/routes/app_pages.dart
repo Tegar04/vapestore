@@ -5,9 +5,14 @@ import 'package:myapp/app/modules/Awal/register/bindings/signup_binding.dart';
 import 'package:myapp/app/modules/Awal/register/views/signup_view.dart';
 import 'package:myapp/app/modules/Awal/welcome/views/welcome_view.dart';
 import 'package:myapp/app/modules/Produk/detail_produk/view/detail_product_page.dart';
+import 'package:myapp/app/modules/Tengah/Belanja/Cart_page.dart';
+import 'package:myapp/app/modules/Tengah/Wislisht/wishlist.dart';
 import 'package:myapp/app/modules/Tengah/home/views/home_admin.dart';
 import 'package:myapp/app/modules/Tengah/home/views/home_view_user.dart';
-import 'package:myapp/app/modules/orderproduct/order/views/order_view.dart';
+import 'package:myapp/app/modules/Tengah/orderproduct/order/bindings/order_bindings.dart';
+import 'package:myapp/app/modules/Tengah/orderproduct/order/views/done_view.dart';
+import 'package:myapp/app/modules/Tengah/orderproduct/order/views/order_view.dart';
+import 'package:myapp/app/modules/Tengah/orderproduct/order/views/voucher_view.dart';
 import '../modules/Tengah/home/bindings/home_binding.dart';
 import '../modules/Tengah/home/views/home_view_admin.dart';
 
@@ -49,10 +54,24 @@ class AppPages {
       page: () => const DetailProductPage(),
       transition: Transition.fadeIn, // Optional: Add transition effect
     ),
+    GetPage(name: AppRoutes.WISHLIST, page: () => WishlistPage()),
+    GetPage(
+      name: AppRoutes.CART,
+      page: () => CartPage(),
+    ),
     GetPage(
       name: AppRoutes.ORDER,
       page: () => OrderView(),
-      transition: Transition.fadeIn, // Optional: Add transition effect
+      binding: OrderBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.VOUCHER,
+      page: () => VoucherView(),
+      binding: OrderBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.DONE,
+      page: () => DoneView(),
     ),
   ];
 }

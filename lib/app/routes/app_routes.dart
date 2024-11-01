@@ -10,5 +10,9 @@ abstract class AppRoutes {
   static const LOGIN = '/login';
   static const SIGNUP = '/signup';
   static const detailProduct = '/detailproduct';
+  static const WISHLIST = '/wishlist';
+  static const CART = '/cart';
   static const ORDER = '/order';
+  static const VOUCHER = '/voucher';
+  static const DONE = '/done';
 }

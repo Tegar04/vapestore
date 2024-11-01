@@ -5,11 +5,11 @@ import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controller
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/promo_controller.dart';
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/add_product_page.dart';
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/add_promo_page.dart';
+import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/add_voucher_page.dart';
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/edit_product_page.dart';
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/view/edit_promo_page.dart';
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/widgets/admin_product_card.dart';
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/widgets/admin_promo_card.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -22,12 +22,10 @@ class _HomeAdminPageState extends State<HomePage> {
   final PromoController promoController = Get.put(PromoController());
   final ProductController productController = Get.put(ProductController());
 
-
   @override
   void initState() {
     super.initState();
     // Pastikan aplikasi siap menerima notifikasi dalam semua kondisi
-    
   }
 
   void _addNewProduct() {
@@ -47,7 +45,6 @@ class _HomeAdminPageState extends State<HomePage> {
               icon: const Icon(Icons.notifications),
               onPressed: () {
                 // Navigasi ke halaman daftar notifikasi
-                
               },
             ),
           ],
@@ -56,7 +53,7 @@ class _HomeAdminPageState extends State<HomePage> {
           child: Column(
             children: [
               // Tombol untuk memicu notifikasi
-              
+
               // Product Management Section
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -83,7 +80,8 @@ class _HomeAdminPageState extends State<HomePage> {
                     padding: const EdgeInsets.only(bottom: 16.0),
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.75,
                       crossAxisSpacing: 8.0,
@@ -97,7 +95,8 @@ class _HomeAdminPageState extends State<HomePage> {
                         name: product['name'] ?? 'Nama Produk',
                         price: 'Rp ${product['price'] ?? 0}',
                         onEdit: () {
-                          Get.to(() => EditProductPage(productId: product['id']));
+                          Get.to(
+                              () => EditProductPage(productId: product['id']));
                         },
                         onDelete: () {
                           showDialog(
@@ -113,7 +112,8 @@ class _HomeAdminPageState extends State<HomePage> {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    productController.deleteProduct(product['id']);
+                                    productController
+                                        .deleteProduct(product['id']);
                                     Get.back();
                                   },
                                   child: const Text('Hapus'),
@@ -153,7 +153,8 @@ class _HomeAdminPageState extends State<HomePage> {
                     padding: const EdgeInsets.only(bottom: 16.0),
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 0.75,
                       crossAxisSpacing: 8.0,
@@ -221,6 +222,14 @@ class _HomeAdminPageState extends State<HomePage> {
                     onTap: () {
                       Get.back();
                       _addNewPromo();
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.card_giftcard),
+                    title: const Text('Tambah Voucher'),
+                    onTap: () {
+                      Get.back();
+                      Get.to(() => const AddVoucherPage());
                     },
                   ),
                 ],

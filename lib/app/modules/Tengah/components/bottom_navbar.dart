@@ -25,10 +25,10 @@ class BottomNavBar extends StatelessWidget {
             Get.toNamed('/homeuser');
             break;
           case 1:
-            Get.toNamed('/homeuser');
+            Get.toNamed('/wishlist');
             break;
           case 2:
-            Get.toNamed('/homeuser');
+            Get.toNamed('/cart');
             break;
           case 3:
             Get.toNamed('/homeuser');

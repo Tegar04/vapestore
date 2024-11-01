@@ -1,4 +1,4 @@
-// File: /lib/app/modules/Order/views/order_view.dart
+// File: /lib/app/modules/Tengah/orderproduct/order/views/order_view.dart
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -181,7 +181,7 @@ class OrderView extends GetView<OrderController> {
   Widget _buildOrderButton() {
     return ElevatedButton(
       child: Text('Order'),
-      onPressed: () => Get.toNamed('/scan'),
+      onPressed: controller.submitOrder,
       style: ElevatedButton.styleFrom(
           foregroundColor: Colors.black, backgroundColor: Colors.white),
     );

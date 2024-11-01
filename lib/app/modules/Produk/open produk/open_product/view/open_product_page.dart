@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:myapp/app/modules/Produk/product%20Viewer%20&%20Admin/controllers/product_controller.dart';
 
 class OpenProductPage extends StatelessWidget {
@@ -25,7 +26,6 @@ class OpenProductPage extends StatelessWidget {
 
     // Menampilkan gambar berdasarkan apakah imageUrl adalah URL atau rute lokal
     Widget imageWidget;
-
     if (imageUrl.startsWith('http')) {
       imageWidget = Image.network(
         imageUrl,
@@ -88,6 +88,12 @@ class OpenProductPage extends StatelessWidget {
                 productController.toggleFavorite(productIndex, userId);
               },
             ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.shopping_cart, color: Colors.black),
+            onPressed: () {
+              Get.toNamed('/cart'); // Navigasi ke halaman keranjang
+            },
           ),
         ],
       ),
@@ -174,11 +180,35 @@ class OpenProductPage extends StatelessWidget {
                   textAlign: TextAlign.left,
                 ),
               ),
-              const SizedBox(height: 60),
+              const SizedBox(height: 20),
+              // Tombol Tambah ke Keranjang
+              ElevatedButton(
+                onPressed: () {
+                  addToCart(name, price, imageUrl);
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  backgroundColor: Colors.orange,
+                  side: const BorderSide(color: Colors.black54),
+                ),
+                child: const Text(
+                  'Tambah ke Keranjang',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
               // Tombol Buy Now
               ElevatedButton(
                 onPressed: () {
-                  Get.toNamed("/order");
+                  Get.toNamed('/order');
+                  // Aksi untuk tombol beli sekarang
                 },
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 12),
@@ -202,5 +232,24 @@ class OpenProductPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  // Fungsi untuk menambahkan produk ke keranjang
+  Future<void> addToCart(String name, int price, String imageUrl) async {
+    final userId = 'current_user_id'; // ID pengguna, perlu disesuaikan
+    final cartCollection = FirebaseFirestore.instance
+        .collection('users')
+        .doc(userId)
+        .collection('cart');
+
+    await cartCollection.add({
+      'name': name,
+      'price': price,
+      'imageUrl': imageUrl,
+      'quantity': 1,
+    });
+
+    Get.snackbar('Sukses', 'Produk berhasil ditambahkan ke keranjang!',
+        snackPosition: SnackPosition.BOTTOM);
   }
 }
