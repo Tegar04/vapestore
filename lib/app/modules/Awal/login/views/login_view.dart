@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/login/controllers/login_controller.dart';
+import 'package:myapp/app/modules/Awal/login/controllers/login_controller.dart';
 import 'package:flutter/gestures.dart';
 
 class LoginView extends GetView<LoginController> {

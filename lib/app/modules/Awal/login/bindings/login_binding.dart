@@ -1,6 +1,6 @@
 // app/modules/login/bindings/login_binding.dart
 import 'package:get/get.dart';
-import 'package:myapp/app/modules/login/controllers/login_controller.dart';
+import 'package:myapp/app/modules/Awal/login/controllers/login_controller.dart';
 
 class LoginBinding extends Bindings {
   @override
