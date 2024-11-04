@@ -1,10 +1,10 @@
-// File: /lib/app/modules/Tengah/orderproduct/order/controllers/order_controller.dart
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class OrderController extends GetxController {
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // Observables
   var products = <Map<String, dynamic>>[].obs;
@@ -76,25 +76,29 @@ class OrderController extends GetxController {
   }
 
   Future<void> submitOrder() async {
-    if (selectedProduct.value == null) return;
-
-    final orderData = {
-      'productId': selectedProduct.value?['id'],
-      'productName': selectedProduct.value?['name'],
-      'quantity': quantity.value,
-      'price': price.value,
-      'discount': discount.value,
-      'total': total.value,
-      'orderDate': DateTime.now(),
-      // Tambahkan detail lain seperti user ID atau alamat pengiriman jika diperlukan
-    };
-
     try {
+      final user = _auth.currentUser; // Mendapatkan pengguna saat ini
+      if (user == null) {
+        Get.snackbar("Error", "User not logged in.");
+        return;
+      }
+
+      final orderData = {
+        'productId': selectedProduct.value?['id'],
+        'productName': selectedProduct.value?['name'],
+        'quantity': quantity.value,
+        'price': price.value,
+        'discount': discount.value,
+        'total': total.value,
+        'uid': user.uid, // Menyimpan uid pengguna
+        'orderDate': FieldValue.serverTimestamp(),
+      };
+
       await firestore.collection('orders').add(orderData);
-      Get.snackbar('Success', 'Order has been placed successfully!');
-      Get.toNamed('/done'); // Pindah ke halaman selanjutnya setelah sukses
+      Get.toNamed(
+          '/nextPage'); // Navigasi ke halaman berikutnya setelah pemesanan
     } catch (e) {
-      Get.snackbar('Error', 'Failed to place order: $e');
+      Get.snackbar("Error", "Failed to submit order: $e");
     }
   }
 }
