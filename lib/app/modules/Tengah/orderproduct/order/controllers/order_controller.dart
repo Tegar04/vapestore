@@ -95,8 +95,7 @@ class OrderController extends GetxController {
       };
 
       await firestore.collection('orders').add(orderData);
-      Get.toNamed(
-          '/nextPage'); // Navigasi ke halaman berikutnya setelah pemesanan
+      Get.toNamed('/done'); // Navigasi ke halaman berikutnya setelah pemesanan
     } catch (e) {
       Get.snackbar("Error", "Failed to submit order: $e");
     }
